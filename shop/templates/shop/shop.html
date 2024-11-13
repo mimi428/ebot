@@ -1,0 +1,56 @@
+{%extends 'shop/main.html' %}
+{%load static%}
+{%block content%}
+<html>
+    <head>
+        <style>
+        #home{
+            background-image: url('../images/1.jpg');
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position-x: 0px;
+            background-position-y: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        #home .container{
+            padding: 25%;
+            margin-top: 137px;
+        }
+    </style>
+    </head>
+    <div>
+    <section id="home">
+        <div class="container">
+          <br>
+            <h5 style="color: #2f1b12"> Glimmer Accessories</h5>
+            <h1 style="color: #2f1b12"><span>Shine with Elegance, </span> Radiate with Confidence</h1>
+            <button onclick=openshop()>Shop Now</button>
+        </div>
+
+    </section>
+    
+    </div>
+
+<div class="row" style="margin-top: 20px;">
+    {%for product in products%}
+    <div class="col-lg-4" style="margin-bottom: 50px;">
+        <img  class="thumbnail" src="{{product.imageURL}}">
+        <div class="box-element product">
+            <h6><strong>{{product.name}}</strong></h6>
+            <hr>
+            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+            <a class="btn custom-view" href="#">View</a>
+            <h4 style="display: inline-block; float: right">Rs.{{product.price}}</h4>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+</html>
+
+
+{%endblock content%}

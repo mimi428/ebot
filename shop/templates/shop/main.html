@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <title>Ecommerce</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <style>
+      /* Basic Reset */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      /* Chat Button */
+      .chat-button {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #6C4E31;
+          color: white;
+          border: none;
+          padding: 15px;
+          border-radius: 50%;
+          font-size: 20px;
+          cursor: pointer;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 100;
+      }
+
+      .chat-button:hover {
+          background-color: #B59F78;
+      }
+
+      /* Chat Window */
+      .chat-window {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          width: 300px;
+          height: 400px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          display: none;
+          flex-direction: column;
+          overflow: hidden;
+          z-index: 99;
+      }
+
+      .chat-header {
+          background-color: #6C4E31;
+          color: white;
+          padding: 10px;
+          font-weight: bold;
+          text-align: center;
+      }
+
+      .chat-content {
+          flex-grow: 1;
+          padding: 10px;
+          overflow-y: auto;
+          max-height: 300px;
+          font-family: Arial, sans-serif;
+      }
+
+      .chatbox {
+          margin-bottom: 10px;
+      }
+
+      .user-message, .bot-message {
+          margin: 5px 0;
+      }
+
+      .user-message {
+          text-align: right;
+          color: #333;
+      }
+
+      .bot-message {
+          text-align: left;
+          color: #333;
+      }
+
+      .chat-input-container {
+          display: flex;
+          border-top: 1px solid #ddd;
+          padding: 10px;
+      }
+
+      .chat-input-container input {
+          flex-grow: 1;
+          padding: 10px;
+          border: none;
+          border-radius: 20px;
+          font-size: 14px;
+      }
+
+      .chat-input-container button {
+          background-color: #6C4E31;
+          color: white;
+          border: none;
+          padding: 10px;
+          border-radius: 20px;
+          margin-left: 10px;
+          cursor: pointer;
+      }
+
+      .chat-input-container button:hover {
+          background-color: #B59F78;
+      }
+  </style>
+    
+    
+    
+    
+    <script type="text/javascript">
+      var user = '{{request.user}}'
+
+      function getToken(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  var csrftoken = getToken('csrftoken')
+
+
+  function toggleChatWindow() {
+    const chatWindow = document.getElementById("chatWindow");
+    chatWindow.style.display = chatWindow.style.display === "none" || chatWindow.style.display === "" ? "flex" : "none";
+  }
+
+  function sendMessage() {
+    const userInput = document.getElementById("userInput").value;
+    fetch(`/shop/chatbot/?message=${userInput}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("chatbox").innerHTML += `<div class="chatbox user-message"><strong>You:</strong> ${userInput}</div>`;
+            document.getElementById("chatbox").innerHTML += `<div class="chatbox bot-message"><strong>Gleam-Bot:</strong> ${data.response}</div>`;
+            document.getElementById("userInput").value = "";
+            document.getElementById("chatContent").scrollTop = document.getElementById("chatContent").scrollHeight;
+        });
+  }
+
+
+  </script>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{%url 'shop'%}">
+          <img id="logo" src="{% static 'images/logo1.png'%}" alt="picture" >
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+        
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'categories'%}">Categories<span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="{%url 'aboutus'%}">About Us <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="{%url 'contactus'%}">ContactUs <span class="sr-only">(current)</span></a>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0 custom-search-form">
+            <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-sm-0 custom-search-button" type="submit">Search</button>
+        </form>
+          <div>
+            <a href="{%url 'login'%}"class="btn btn-warning custom-login-button">Login</a>
+          </div>
+          <div>
+            <a href="{% url 'cart' %}">
+            <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+            </a>
+           </div>
+           <div>
+            <p id="cart-total">{{cartItems}}</p>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        {%block content%}
+        
+        {%endblock content%}
+    </div>
+    
+    <!--Chatbot-->
+    <!-- Chat Window -->
+    <div id="chatWindow" class="chat-window">
+      <div class="chat-header">Chat with Us!</div>
+      <div id="chatContent" class="chat-content">
+          <div id="chatbox">
+            Hi i am GleamBot, here to assist you in every way possible!
+          </div>
+      </div>
+      <div class="chat-input-container">
+          <input type="text" id="userInput" placeholder="Type your message..." />
+          <button onclick="sendMessage()">Send</button>
+      </div>
+  </div>
+
+  <!-- Chat Button -->
+  <button class="chat-button" onclick="toggleChatWindow()">💬</button>
+
+
+
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+  <footer>
+    <div class="footer-container">
+        <div class="footer-links">
+            <nav>
+                <ul class="footer-nav">
+                    <li><a href="/terms">Terms & Conditions</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-copy">
+              <p>&copy; 2024 Accessories. All Rights Reserved.</p>
+            </div>
+        </div>  
+    </div>
+  </footer>
+</body>
+</html>

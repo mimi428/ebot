@@ -1,0 +1,250 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hello",
+          "Hi",
+          "Hey",
+          "Good morning",
+          "Good afternoon",
+          "Good evening",
+          "What's up?",
+          "How's it going?",
+          "Hey there",
+          "Greetings"
+        ],
+        "responses": [
+          "Hello! How can I assist you today?",
+          "Hi there! How can I help?",
+          "Hey! What can I do for you?",
+          "Hello! What do you need help with today?"
+        ]
+      },
+      {
+        "tag": "farewell",
+        "patterns": [
+          "Bye",
+          "Goodbye",
+          "See you later",
+          "I'm leaving",
+          "Take care",
+          "Catch you later",
+          "See ya",
+          "Have a good day",
+          "I'm off",
+          "Talk to you soon"
+        ],
+        "responses": [
+          "Goodbye! Have a great day!",
+          "See you later! Feel free to ask anytime.",
+          "Take care! Hope to talk again soon.",
+          "Goodbye! Don't hesitate to reach out."
+        ]
+      },
+      {
+        "tag": "product_search",
+        "patterns": [
+          "Tell me about star earring",
+          "Tell me about heart pendant",
+          "Tell me about brown watch",
+          "Is {product_name} available?",
+          "Do you have {product_name}?",
+          "Can I get more info about {product_name}?",
+          "What is {product_name}?",
+          "Do you have any details on {product_name}?",
+          "Give me some information on {product_name}",
+          "Show me {product_name}",
+          "Is {product_name} in stock?",
+          "Where can I find {product_name}?",
+          "tell me more about {product_name}",
+          "star earring",
+          "heart pendant",
+          
+          "sth",
+          "drop earring",
+          
+          
+          "Brown watch",
+          "finger ring"
+                
+        ],
+        "responses": [
+          "Let me check if we have {product_name} in stock...",
+          "Checking availability for {product_name}...",
+          "I'll get more information about {product_name} for you.",
+          "Looking up details for {product_name}...",
+          "Here are the details for {product_name}:",
+          "Let me find the price and availability of {product_name} for you.",
+          "I’ll fetch the information about {product_name}. Please hold on.",
+          "Let me fetch the specifications for {product_name}.",
+          "Here’s the image of {product_name} you asked for.",
+          "Let me check if we have {product_name} in your area.",
+          "I’ll recommend something similar to {product_name}. Just a moment."
+        ]
+      },
+      {
+        "tag": "category_search",
+        "patterns": [
+          "What do you have in {category_name}?",
+          "Show me products in {category_name}",
+          "What products are available in {category_name}?",
+          "List items in the {category_name} category",
+          "watch","ring","earring","pendant","random"
+        ],
+        "responses": [
+          "Here are the products in the {category_name} category."
+        ]
+      },
+      {
+        "tag": "order_status",
+        "patterns": [
+          "Where is my order?",
+          "Track my order",
+          "What is the status of my order?",
+          "Can I get an update on my order?",
+          "Has my order shipped?",
+          "Tell me where my order is",
+          "Where's my package?",
+          "Has my order been dispatched?",
+          "Is my order on the way?",
+          "What is the ETA of my order?"
+        ],
+        "responses": [
+          "Let me check the status of your order.",
+          "I will look up your order details for you.",
+          "Your order is being processed. I'll get back to you with the status.",
+          "Let me find the tracking information for your order."
+        ]
+      },
+      {
+        "tag": "customer_service",
+        "patterns": [
+          "I need help",
+          "Can I talk to a representative?",
+          "Is there someone I can speak to?",
+          "Can you assist me?",
+          "Can you help me out?",
+          "I have a problem",
+          "I need assistance",
+          "Get me customer support",
+          "I need customer service",
+          "Can I speak to someone?"
+        ],
+        "responses": [
+          "I’m here to help! What do you need assistance with?",
+          "Sure! What can I help you with today?",
+          "Of course! What’s the issue?",
+          "I'm happy to help! How can I assist you?"
+        ]
+      },
+      {
+        "tag": "return_policy",
+        "patterns": [
+          "What is your return policy?",
+          "How can I return a product?",
+          "Can I return an item?",
+          "What’s the process for returning something?",
+          "How long do I have to return a product?",
+          "Do you accept returns?",
+          "What’s your refund policy?",
+          "How can I get a refund?",
+          "Can I exchange a product?",
+          "How do I send a product back?"
+        ],
+        "responses": [
+          "Our return policy allows returns within 30 days of purchase.",
+          "You can return any product within 30 days of delivery.",
+          "To return a product, please visit our returns page.",
+          "We accept returns for up to 30 days after purchase."
+        ]
+      },
+      {
+        "tag": "payment_inquiry",
+        "patterns": [
+          "How can I pay?",
+          "What payment methods do you accept?",
+          "Can I pay with PayPal?",
+          "Is cash on delivery available?",
+          "Do you accept credit cards?",
+          "How do I pay for my order?",
+          "What are my payment options?",
+          "Can I use my debit card?",
+          "Is payment secure?",
+          "What is the payment process?",
+          "pay",
+          "how to pay"
+        ],
+        "responses": [
+          "We accept credit cards, debit cards, and PayPal.",
+          "You can pay using a credit or debit card, or PayPal.",
+          "Payment is secure with SSL encryption for all transactions.",
+          "We accept all major credit cards and PayPal."
+        ]
+      },
+      {
+        "tag": "shipping_inquiry",
+        "patterns": [
+          "When will my order arrive?",
+          "How long does shipping take?",
+          "What is the estimated delivery time?",
+          "Do you offer express shipping?",
+          "How can I track my shipment?",
+          "What are the shipping options?",
+          "Where is my package?",
+          "When will my order be delivered?",
+          "Is shipping free?",
+          "Do you ship internationally?"
+        ],
+        "responses": [
+          "Shipping usually takes 5-7 business days.",
+          "You can track your order on our tracking page.",
+          "We offer both standard and express shipping options.",
+          "Yes, we do offer international shipping!"
+        ]
+      },
+      {
+        "tag": "feedback",
+        "patterns": [
+          "How can I leave feedback?",
+          "Can I submit a review?",
+          "Where can I leave a comment?",
+          "How do I share my feedback?",
+          "Can I rate a product?",
+          "Is there a feedback form?",
+          "Where can I write a review?",
+          "I want to share my experience",
+          "How do I leave a review?",
+          "How can I give you feedback?"
+        ],
+        "responses": [
+          "We’d love to hear your feedback! You can leave a review on our website.",
+          "You can submit feedback through our contact page.",
+          "Feel free to leave a review on the product page!",
+          "You can rate and review products after purchasing them."
+        ]
+      },
+      {
+        "tag": "help",
+        "patterns": [
+          "I need help",
+          "Can you help me?",
+          "Can you assist me?",
+          "I don’t understand",
+          "What do I do now?",
+          "I’m stuck",
+          "I need guidance",
+          "Can you explain?",
+          "Help me out",
+          "What do I do next?"
+        ],
+        "responses": [
+          "Sure, what do you need help with?",
+          "I’m here to help! What’s the issue?",
+          "Let me know how I can assist you.",
+          "I'm happy to help. What do you need help with?"
+        ]
+      }
+    ]
+  }
+  
