@@ -1,7 +1,24 @@
 {%extends 'shop/main.html' %}
 {%load static%}
 {%block content%}
-
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/11.jpg) no-repeat scroll center center / cover ;">
+    <div>
+        <section class="picture">
+            <div class="container-picture">
+                <br>
+                <h5 style="color: #2f1b12 ;margin-left: 140px;margin-bottom: 25px;"><strong> Home > Checkout</strong></h5>
+            </div>
+        </section>
+    </div>
+</div>
+<br>
+<div>
+    <div class="box-element" id="form-wrapper">
+        <hr>
+        <a  class="btn btn-outline-dark custom-add-to-cart" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+        <hr>
+    </div>
+</div>
 <div class="row"  style="margin-top: 20px;">
     <div class="col-lg-6">
         <div class="box-element" id="form-wrapper">
@@ -50,8 +67,6 @@
 
     <div class="col-lg-6">
         <div class="box-element">
-            <a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
-            <hr>
             <h3>Order Summary</h3>
             <hr>
             {% for item in items %}

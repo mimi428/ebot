@@ -2,7 +2,89 @@
 {%load static%}
 {%block content%}
 
- <h1>contact us</h1>
 
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/11.jpg) no-repeat scroll center center / cover ;">
+    <div>
+        <section class="picture">
+            <div class="container-picture">
+                <br>
+                <h5 style="color: #2f1b12 ;margin-left: 140px;margin-bottom: 25px;"><strong> Home > Contact</strong></h5>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="row"  style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <iframe class="w-100 rounded mb-4" height= "500px" width="500px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.061457522327!2d85.30634876438478!3d27.715388681746795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fca0424275%3A0x4094b9db85d64504!2sPaknajol%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1658571114665!5m2!1sen!2snp" loading="lazy"></iframe>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+           <h3 style="color:black">CONTACT US</h3>
+           <hr>
+        <br>
+        <div class="box-element" id="form-wrapper">
+            <div class="address">
+                <div class="address__details" style="color:black">
+                    <h4 class="ct__title">our address</h4>
+                    <p>Paknajol,Kathmandu </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="box-element" id="form-wrapper">
+            <div class="address">
+                <div class="address__details">
+                    <h4 class="ct__title">opening hour</h4>
+                    <p>9AM-6PM </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="box-element" id="form-wrapper">
+            <div class="address">
+                <div class="address__details">
+                    <h4 class="ct__title">Phone Number</h4>
+                    <p>123-6586-587456</p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>      
+</div>
+<div class="row">
+    <div class="contact-form-wrap mt--60">
+        <div class="col-xs-12">
+            <div class="contact-title">
+                <h2 class="title__line--6">SEND A MAIL</h2>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <form id="contact-form" action="#" method="post">
+                <div class="single-contact-form">
+                    <div class="contact-box name">
+                        <input type="text" id="name" name="name" placeholder="Your Name*">
+                        <input type="email" id="email" name="email" placeholder="Email*">
+                        <input type="email" id="mobile" name="mobile" placeholder="Mobile*">
+                    </div>
+                </div>
+                
+                <div class="single-contact-form">
+                    <div class="contact-box message">
+                        <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                    </div>
+                </div>
+                <div class="contact-btn">
+                    <button type="button" onclick="send_message()" class="btn btn-outline my-sm-0 fv-btn">Send MESSAGE</button>
+                </div>
+            </form>
+            <div class="form-output">
+                <p class="form-messege"></p>
+            </div>
+        </div>
+    </div> 
+</div>
+
+</div>
  
 {%endblock content%}
