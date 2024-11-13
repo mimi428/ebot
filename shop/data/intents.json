@@ -60,8 +60,8 @@
           "tell me more about {product_name}",
           "star earring",
           "heart pendant",
-          
-          "sth",
+          "black shades",
+          "heart ring",
           "drop earring",
           
           
@@ -90,7 +90,7 @@
           "Show me products in {category_name}",
           "What products are available in {category_name}?",
           "List items in the {category_name} category",
-          "watch","ring","earring","pendant","random"
+          "watch","ring","earring","bracelet","necklace", "sunglass"
         ],
         "responses": [
           "Here are the products in the {category_name} category."
